@@ -1,58 +1,69 @@
 package com.bridgelabz;
 
-public class Contact {
-	private String firstName, lastName, address, state, email, city;
-	private int zip;
-	private long phoneNumber;
+import com.opencsv.bean.CsvBindByName;
 
-	Contact(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber,
-			String email) {
+public class Contact {
+	@CsvBindByName(column = "First Name")
+	private String firstName;
+	
+	@CsvBindByName(column = "Last Name")
+	private String lastName;
+	
+	@CsvBindByName(column = "Email")
+	private String email;
+	
+	@CsvBindByName(column = "Phone Number")
+	private long phoneNumber;
+	
+	@CsvBindByName(column = "City")
+	private String city;
+	
+	@CsvBindByName(column = "State")
+	private String state;
+	
+	@CsvBindByName(column = "Zip Code")
+	private int zip;
+	
+	
+	public Contact(String firstName, String lastName,String address,String city, String state,int zip,long phoneNumber,String email) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
 	}
 
 	public String getFirstName() {
 		return firstName;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
+	
 	public String getLastName() {
 		return lastName;
 	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
-
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -60,30 +71,30 @@ public class Contact {
 	public String getCity() {
 		return city;
 	}
-
+	
+	public String getState() {
+		return state;
+	}
+	
+	public long getZip() {
+		return zip;
+	}
+	
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-	public int getZip() {
-		return zip;
+	
+	public void setState(String state) {
+		this.state = state;
 	}
-
+	
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
-
-	public long getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(long phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", state="
-				+ state + ", email=" + email + ", city=" + city + ", zip=" + zip + ", phoneNumber=" + phoneNumber + "]";
+		
+		return "First Name - "+firstName+", Last Name - "+lastName+", Phone Number - "+phoneNumber+", Email - "+email+", City - "+city+", State - "+state+", Zip Code - "+zip;
 	}
 }
